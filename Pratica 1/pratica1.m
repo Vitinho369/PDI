@@ -1,9 +1,11 @@
 clear all
 close all
+
+#Objetivo A
 m1 =  imread('circulo.png');
 
-figure('Name', 'Circulo')
-imshow(m1)
+figure('Name', 'Circulo');
+imshow(m1);
 
 m1
 
@@ -23,3 +25,43 @@ figure('Name', 'Circulo Cinza');
 imshow(m2)
 
 imwrite(m2, "Circulo_cinza.png");
+
+#Objetivo B
+
+im = imread('lena.png');
+
+figure('Name', 'Lena');
+imshow(im);
+
+size(im)
+
+for i=1:size(im,1)
+  for j=1:size(im,2)
+    im(i,j) += 80;
+  endfor
+endfor
+
+figure('Name', 'Lena + 80');
+imshow(im);
+
+for i=1:size(im,1)
+  for j=1:size(im,2)
+    im(i,j) -= 80;
+  endfor
+endfor
+
+figure('Name', 'Lena - 80');
+imshow(im);
+
+im = imread('lena.png');
+
+value = input("Digite um valor para aumentar as intensidades: ");
+
+for i=1:size(im,1)
+  for j=1:size(im,2)
+    im(i,j) += value;
+  endfor
+endfor
+
+figure('Name', 'Lena + valor');
+imshow(im);
