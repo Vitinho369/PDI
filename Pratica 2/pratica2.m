@@ -100,7 +100,7 @@ imPosterizada = imLena;
 
 for i=1:size(imPosterizada,1)
   for j=1:size(imPosterizada,2)
-    if(imPosterizada(i,j) < 87)
+    if(imPosterizada(i,j) < 86)
         imPosterizada(i,j) = 0;
      elseif(imPosterizada(i,j) > 169)
           imPosterizada(i,j) = 255;

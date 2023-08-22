@@ -65,3 +65,4 @@ endfor
 
 figure('Name', 'Lena + valor');
 imshow(im);
+
