@@ -7,7 +7,6 @@ im = uint8(im);
 figure("Name", "Imagem vazia");
 imshow(im);
 
-
 cont = 0;
 imDegrade = im;
 for i=1:size(im,1)
@@ -46,7 +45,7 @@ imLena = imread('Lena.png');
 figure("Name","Lena");
 imshow(imLena);
 
-tic()
+tic
 imClara = imLena;
 
 for i=1:size(imClara,1)
@@ -63,13 +62,13 @@ for i=1:size(imEscura,1)
   endfor
 endfor
 
-toc()
+toc
 
 figure("Name", "Imagens Lena");
 subplot(1,2,1), imshow(imClara);
 subplot(1,2,2), imshow(imEscura);
 
-tic()
+tic
 imClara2 = imLena;
 
 imClara2(:,:)+= (imClara2(:,:) * 0.8);
@@ -77,7 +76,7 @@ imClara2(:,:)+= (imClara2(:,:) * 0.8);
 imEscura2 = imLena;
 
 imEscura2(:,:)-=(imEscura2(:,:) *0.8);
-toc()
+toc
 
 figure("Name", "Imagens Lena Atribuição Direta");
 subplot(1,2,1), imshow(imClara2);
@@ -96,6 +95,8 @@ for i=1:size(imDegrade,1)
 endfor
 
 
+figure("Name", "Lena Degrade");
+imshow(imDegrade);
 imPosterizada = imLena;
 
 for i=1:size(imPosterizada,1)
@@ -110,5 +111,6 @@ for i=1:size(imPosterizada,1)
   endfor
 endfor
 
+print("teste");
 figure("Name", "Lena Degrade e Posterizada");
- imshow(imPosterizada);
+imshow(imPosterizada);
