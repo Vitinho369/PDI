@@ -54,5 +54,8 @@ for i=1:linha
     endfor
 endfor
 
-figure('Name', 'Imagem Alargada')
+figure('Name', 'Imagem Original')
+imshow(im)
+
+figure('Name', 'Imagem Contraste')
 imshow(imContraste)
