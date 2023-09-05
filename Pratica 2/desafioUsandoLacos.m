@@ -1,6 +1,6 @@
 clear all
 close all
-im = imread('lena.png');
+im = imread('moon.png');
 
 levels = input("Digite quantos níveis você deseja posterizar a imagem:");
 posterization = 255/(levels);

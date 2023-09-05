@@ -1,6 +1,6 @@
 close all
 clear all
-im = imread('lena.png');
+im = imread('moon.png');
 
 levels = input("Digite quantos níveis você deseja posterizar a imagem:");
 divisorPost = 255/(levels);
