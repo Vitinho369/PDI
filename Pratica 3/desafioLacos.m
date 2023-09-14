@@ -13,7 +13,6 @@ for i=1:8
   vetorImagens(:,:, i) = logical(zeros(size(im,1),size(im,2)));
 endfor
 
-
 for i=1:size(im,1)
   for j=1:size(im,2)
    divisor = im(i,j);
