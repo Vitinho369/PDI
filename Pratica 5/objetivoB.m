@@ -21,7 +21,26 @@ imMask = imR > 150;
 figure("Name","Im Mask");
 imshow(imMask);
 
-imFinal = im .* imMask;
+imFinal1 = im .* imMask;
 
-figure("Name","Imagem Final");
-imshow(imFinal);
+figure("Name","Imagem Final 1");
+imshow(imFinal1);
+
+largura = size(imMask,1);
+altura = size(imMask,2);
+
+imFinal2 = zeros(largura, altura, 3, "uint8");
+
+for i=1:largura
+  for j=1:altura
+      if imMask(i,j)
+        imFinal2(i,j,:) = im(i,j,:);
+      else
+        imFinal2(i,j,:) = imMask(i,j);
+      endif
+    endfor
+  endfor
+
+figure("Name","Imagem Final 2");
+imshow(imFinal2);
+
