@@ -20,7 +20,11 @@ imshow(assInvert)
 
 img9 = imread("img9.jpg");
 figure("Name","img9");
-imshow(img9)
+
+for i=1:size(img9,1)
+      img9Invert(:,size(img9,2) - i + 1,:) = img9(i,:,:);
+  endfor
+imshow(img9Invert)
 
 foto9 = imread("foto9.jpg");
 figure("Name","foto9");
@@ -58,9 +62,46 @@ imSaida(:,:,3) = mascara3;
 for i=1:size(imSaida,1)
   for j=1:size(imSaida,2)
         if imSaida(i,j) >= 0 && imSaida(i,j) <= 30
-        imSaida(i,j,:) = img9(i,j,:);
+          imSaida(i,j,:) = img9Invert(i,j,:);
+
+        elseif imSaida(i,j) >= 70 && imSaida(i,j) <= 100
+          imSaida(i,j,:) = foto9Invert2(i,j,:);
+
         endif
   endfor
+endfor
+
+pontoJ = 1;
+pontoI = 1
+achei =0
+
+#INICIO - ACHAR O QUADRADO PRA COLOCAR A ASSINATURA
+for i=1:size(mascara3,1)
+  for j=1:size(mascara3,2)
+
+  if(mascara3(i,j) >= 120 && mascara3(i,j) <= 150)
+    if achei == 0
+      pontoI = i
+      pontoJ = j
+      achei  =1;
+    endif
+    imSaida(i,j,:) = 0;
+    endif
+
+
+endfor
+endfor
+
+
+a = 1;
+b = 1;
+for i=pontoI+40:pontoI+40+size(ass,1)-1
+  for j=pontoJ:pontoJ+size(ass,2)-1
+      imSaida(i,j,:) = assInvert(a,b);
+      b++;
+      endfor
+      b=1;
+      a++;
 endfor
 
 figure("Name","ImSaida");
