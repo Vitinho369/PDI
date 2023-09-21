@@ -29,7 +29,7 @@ for i=1:(size(vetorHist,2)-1)
   endif
 endfor
 
-intervalo = floor(255/(pontoMax - pontoMin - 1));
+intervalo = floor(256/(pontoMax - pontoMin +1));
 passo = 0;
 
 for i=pontoMin:pontoMax
@@ -39,6 +39,9 @@ for i=pontoMin:pontoMax
     passo += intervalo;
   endif
 endfor
+
+figure("Name", "Histograma alargado");
+plot(vetorAlargado)
 
 linha = size(im,1);
 coluna = size(im,2);
