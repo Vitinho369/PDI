@@ -1,5 +1,5 @@
 clear all;
-close all;
+##close all;
 
 im = logical(imread("brain.png"));
 imAlterada = im;
@@ -33,7 +33,7 @@ figure("Name","Elemento estruturante");
 imshow(elementoEE);
 
 erodir = input("Voce deseja erodir ou dilatar a imagem? 1 - erodir, 0 - dilatar ");
-
+##imAlterada = uint8(imAlterada);
 if erodir == 0
   printf("dilatar")
 
@@ -43,19 +43,18 @@ if erodir == 0
           corte = im(i:i+medida, j:j+medida,:);
 
           if sum(sum(corte)) != 0 && sum(sum(corte)) != sum(sum(elementoEE))
-              for l=1:size(elementoEE,1)
+               for l=1:size(elementoEE,1)
                 for c=1:size(elementoEE,2)
-                  if i+l < largura && j+c < altura && imAlterada(i+l,j+c,:) == 0 && elementoEE(l,c,:) == 1
-                    imAlterada(i+l,j+c,:) = 1;
-                  endif
+                    imAlterada(i+l-1,j+c-1,:) = imAlterada(i+l-1,j+c-1,:)  || elementoEE(l,c,:);
                 endfor
               endfor
+
           endif
         endif
 
       endfor
     endfor
-
+##    imAlterada = logical(imAlterada);
     figure("Name", "Imagem dilatada");
     imshow(imAlterada);
   elseif erodir == 1
@@ -82,6 +81,7 @@ if erodir == 0
       endfor
     endfor
 
+##    imAlterada = logical(imAlterada);
     figure("Name", "Imagem erodida");
     imshow(imAlterada);
   else
