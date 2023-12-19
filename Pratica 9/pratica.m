@@ -1,7 +1,7 @@
 clear all;
 ##close all;
 
-im = logical(imread("brain.png"));
+im = logical(imread("im.png"));
 imAlterada = im;
 figure("Name","Brain");
 imshow(im);

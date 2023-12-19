@@ -21,10 +21,10 @@ figure("Name","land_34");
 imshow(land_34)
 animal_34 = imread("animal_34.png");
 
-
-animal_34 = rgb2gray(animal_34);
 figure("Name","animal_34 Invertida");
 imshow(animal_34);
+animal_34 = rgb2gray(animal_34);
+
 
 for i=1:size(animal_34,1)
   for j=1:size(animal_34,2)
